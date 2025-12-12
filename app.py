@@ -136,15 +136,28 @@ elif menu == "Proses Pembuatan":
 elif menu == "Video Demonstrasi":
     st.markdown("<h2 class='title'>3. Video Demonstrasi</h2>", unsafe_allow_html=True)
 
-    link = st.text_input(
-        "",
-        value="https://drive.google.com/drive/folders/16L5dx4bmIks9y16hYyNSFmjjDD5tTkvh?usp=sharing",
-        placeholder="Tempelkan link video Google Drive di sini..."
+    video_link = "https://drive.google.com/file/d/1LfszewNma00GHxid5a17z2UtKCeK_boo/view?usp=sharing"
+
+    st.markdown(
+        f"""
+        <a href="{video_link}" target="_blank" style="
+            text-decoration: none;
+        ">
+            <div style="
+                padding: 12px 15px;
+                background-color: #f1f3f6;
+                border-radius: 8px;
+                border: 1px solid #d3d5d9;
+                color: #333;
+                font-size: 16px;
+                margin-bottom: 20px;
+            ">
+                {video_link}
+            </div>
+        </a>
+        """,
+        unsafe_allow_html=True
     )
-
-    if link:
-        st.video(link)
-
 
 # -------------------------------------------------------
 # BIODATA TIM
