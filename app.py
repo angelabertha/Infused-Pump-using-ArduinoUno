@@ -134,10 +134,13 @@ elif menu == "Proses Pembuatan":
 # VIDEO DEMO
 # -------------------------------------------------------
 elif menu == "Video Demonstrasi":
-
     st.markdown("<h2 class='title'>3. Video Demonstrasi</h2>", unsafe_allow_html=True)
 
-    link = st.text_input("https://drive.google.com/drive/folders/16L5dx4bmIks9y16hYyNSFmjjDD5tTkvh?usp=sharing ")
+    link = st.text_input(
+        "",
+        value="https://drive.google.com/drive/folders/16L5dx4bmIks9y16hYyNSFmjjDD5tTkvh?usp=sharing",
+        placeholder="Tempelkan link video Google Drive di sini..."
+    )
 
     if link:
         st.video(link)
