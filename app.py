@@ -135,8 +135,6 @@ elif menu == "Proses Pembuatan":
 # -------------------------------------------------------
 elif menu == "Video Demonstrasi":
     st.markdown("<h2 class='title'>3. Video Demonstrasi</h2>", unsafe_allow_html=True)
-
-    <li>Silahkan akses tautan dibawah ini:</li>
     video_link = "https://drive.google.com/file/d/1LfszewNma00GHxid5a17z2UtKCeK_boo/view?usp=sharing"
 
     st.markdown(
