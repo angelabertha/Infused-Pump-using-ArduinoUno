@@ -137,10 +137,10 @@ elif menu == "Video Demonstrasi":
 
     st.markdown("<h2 class='title'>3. Video Demonstrasi</h2>", unsafe_allow_html=True)
 
-    link = st.text_input("Silahkan akses tautan berikut:")
+    link = st.text_input("https://drive.google.com/drive/folders/16L5dx4bmIks9y16hYyNSFmjjDD5tTkvh?usp=sharing ")
 
     if link:
-        st.video(https://drive.google.com/drive/folders/16L5dx4bmIks9y16hYyNSFmjjDD5tTkvh?usp=sharing)
+        st.video(link)
 
 
 # -------------------------------------------------------
