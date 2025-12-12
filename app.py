@@ -1,6 +1,4 @@
 import streamlit as st
-from PIL import Image
-import base64
 
 # ============================
 #  PERSONAL PRODUCT WEBSITE – INFUSED PUMP
@@ -13,8 +11,8 @@ st.set_page_config(
     page_icon="💉",
 )
 
-# ====== Custom CSS Styling ======
-page_bg = f"""
+# ====== Custom CSS Styling (raw string agar aman) ======
+page_bg = r"""
 <style>
 body {
     background: linear-gradient(135deg, #e3f2fd, #e8eaf6);
@@ -71,7 +69,7 @@ st.markdown(
     """
 <div class='product-card'>
     <p style='font-size:18px;'>
-        Infused Pump berbasis Arduino Uno ini adalah sistem **otomatisasi infus** yang bekerja menggunakan metode
+        Infused Pump berbasis Arduino Uno ini adalah sistem <b>otomatisasi infus</b> yang bekerja menggunakan metode
         <b>time-based control</b>. Pengguna hanya memasukkan durasi melalui keypad 4×4, dan pompa peristaltik akan
         mengalirkan cairan infus secara otomatis dengan laju yang stabil.
         <br><br>
