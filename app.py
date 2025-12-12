@@ -17,10 +17,9 @@ menu = st.sidebar.selectbox(
     [
         "Beranda",
         "Deskripsi Produk",
-        "Dokumentasi Proses",
+        "Proses Pembuatan",
         "Video Demonstrasi",
         "Biodata Tim",
-        "Repository",
     ]
 )
 
@@ -56,6 +55,11 @@ st.markdown(page_style, unsafe_allow_html=True)
 # -------------------------------------------------------
 if menu == "Beranda":
     st.markdown("<h1 class='title'>💉 Infused Pump Berbasis Arduino Uno</h1>", unsafe_allow_html=True)
+
+    # ---- Gambar judul dari GitHub ----
+    infuse_url = "https://raw.githubusercontent.com/USERNAME/REPO/main/infusepump.png"
+    st.image(infuse_url, caption="Prototype Infused Pump", use_column_width=True)
+
     st.write("Selamat datang! Pilih menu di sebelah kiri untuk melihat informasi lengkap mengenai produk infused pump.")
 
     st.markdown(
@@ -97,30 +101,29 @@ elif menu == "Deskripsi Produk":
 # -------------------------------------------------------
 # HALAMAN: DOKUMENTASI PROSES
 # -------------------------------------------------------
-elif menu == "Dokumentasi Proses":
-    st.markdown("<h2 class='title'>2. Dokumentasi Proses Pembuatan</h2>", unsafe_allow_html=True)
+elif menu == "Proses Pembuatan Prototype":
+    st.markdown("<h2 class='title'>2. Proses Pembuatan</h2>", unsafe_allow_html=True)
 
+    # ---- Gambar alur dari GitHub ----
+    alur_url = "https://raw.githubusercontent.com/USERNAME/REPO/main/alur.png"
+    st.image(alur_url, caption="Diagram Alur Pembuatan Prototype", use_column_width=True)
+
+    # ---- Penjelasan Tahapan ----
     st.markdown(
         """
         <div class='card'>
-        Tahapan pembuatan alat meliputi:
+        <p><b>Tahapan pembuatan prototype infused pump meliputi proses berikut:</b></p>
         <ul>
-            <li>Perancangan diagram blok</li>
-            <li>Pembuatan skematik rangkaian</li>
-            <li>Perakitan komponen</li>
-            <li>Pemrograman Arduino</li>
-            <li>Pengujian waktu, alarm, dan laju aliran</li>
+            <li><b>Perancangan diagram blok</b> – menentukan alur kerja sistem mulai dari input keypad, pemrosesan Arduino, hingga output LCD, motor, dan buzzer.</li>
+            <li><b>Pembuatan skematik rangkaian</b> – menyusun koneksi detail antar komponen seperti keypad, LCD I2C, motor driver L298N, pompa peristaltik, dan catu daya.</li>
+            <li><b>Perakitan komponen</b> – merangkai seluruh modul pada casing akrilik agar ergonomis, stabil, dan aman digunakan.</li>
+            <li><b>Pemrograman Arduino</b> – membuat logika timer, kontrol motor berbasis waktu, tampilan LCD real-time, serta alarm buzzer.</li>
+            <li><b>Pengujian waktu, alarm, dan laju aliran</b> – mengevaluasi akurasi timer, kestabilan flow rate, dan respons alarm.</li>
         </ul>
-        Unggah foto dokumentasi di bawah:
         </div>
         """,
         unsafe_allow_html=True,
     )
-
-    imgs = st.file_uploader("Upload dokumentasi (boleh lebih dari 1)", accept_multiple_files=True)
-    if imgs:
-        for img in imgs:
-            st.image(img, caption=img.name)
 
 # -------------------------------------------------------
 # HALAMAN: VIDEO DEMONSTRASI
@@ -128,7 +131,7 @@ elif menu == "Dokumentasi Proses":
 elif menu == "Video Demonstrasi":
     st.markdown("<h2 class='title'>3. Video Demonstrasi</h2>", unsafe_allow_html=True)
 
-    link = st.text_input("Masukkan link video (YouTube / Google Drive):")
+    link = st.text_input("https://drive.google.com/drive/folders/16L5dx4bmIks9y16hYyNSFmjjDD5tTkvh?usp=sharing")
 
     if link:
         st.video(link)
@@ -156,15 +159,6 @@ elif menu == "Biodata Tim":
     )
 
 # -------------------------------------------------------
-# HALAMAN: REPOSITORY
-# -------------------------------------------------------
-elif menu == "Repository":
-    st.markdown("<h2 class='title'>5. Repository</h2>", unsafe_allow_html=True)
-
-    repo = st.text_input("Masukkan link repository GitHub:")
-
-    if repo:
-        st.markdown(f"<div class='card'>🔗 <b>Repository:</b> {repo}</div>", unsafe_allow_html=True)
 
 # -------------------------------------------------------
 # FOOTER
