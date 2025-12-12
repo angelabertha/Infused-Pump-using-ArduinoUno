@@ -172,6 +172,6 @@ elif menu == "Biodata Tim":
 # -------------------------------------------------------
 st.write("---")
 st.markdown(
-    "<p style='text-align:center; font-size:14px;'>Website ini dirancang untuk keperluan UAS Sistem Tertanam.</p>",
+    "<p style='text-align:center; font-size:14px;'>Website ini dirancang untuk memenuhi MK Perancangan Sistem Biomedis II</p>",
     unsafe_allow_html=True,
 )
