@@ -4,9 +4,8 @@ import streamlit as st
 # PAGE CONFIG
 # -------------------------------------------------------
 st.set_page_config(
-    page_title="Infused Pump berbasis Arduino Uno",
+    page_title="INFUSED PUMP BERBASIS ARDUINO UNO",
     layout="wide",
-    page_icon="💉",
 )
 
 # -------------------------------------------------------
@@ -59,7 +58,7 @@ st.markdown(page_style, unsafe_allow_html=True)
 # -------------------------------------------------------
 if menu == "Beranda":
 
-    st.markdown("<h1 class='title'>💉 Infused Pump Berbasis Arduino Uno</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 class='title'>INFUSED PUMP BERBASIS ARDUINO UNO</h1>", unsafe_allow_html=True)
 
     # --- FIX GAMBAR: Panggil langsung file lokal ---
     st.image("infusepump.png", caption="Infuse Pump", use_column_width=True)
@@ -67,7 +66,8 @@ if menu == "Beranda":
     st.markdown(
         """
         <div class='card'>
-        Selamat datang! Gunakan menu di sebelah kiri untuk melihat deskripsi produk,
+        Selamat datang! 
+        Gunakan menu di sebelah kiri untuk melihat deskripsi produk,
         proses pembuatan, video demonstrasi, dan biodata tim kami!
         </div>
         """,
@@ -136,6 +136,7 @@ elif menu == "Proses Pembuatan":
 elif menu == "Video Demonstrasi":
     st.markdown("<h2 class='title'>3. Video Demonstrasi</h2>", unsafe_allow_html=True)
 
+    <li>Silahkan akses tautan dibawah ini:</li>
     video_link = "https://drive.google.com/file/d/1LfszewNma00GHxid5a17z2UtKCeK_boo/view?usp=sharing"
 
     st.markdown(
