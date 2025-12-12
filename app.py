@@ -4,7 +4,7 @@ import streamlit as st
 # PAGE CONFIG
 # -------------------------------------------------------
 st.set_page_config(
-    page_title="Infused Pump – Arduino Uno",
+    page_title="Infused Pump berbasis Arduino Uno",
     layout="wide",
     page_icon="💉",
 )
@@ -28,17 +28,24 @@ menu = st.sidebar.selectbox(
 # -------------------------------------------------------
 page_style = r"""
 <style>
+
 body {
     background: linear-gradient(135deg, #e3f2fd, #e8eaf6);
     font-family: 'Segoe UI', sans-serif;
 }
 
+/* CARD FIX */
 .card {
-    background: #fff;
+    background: #ffffff !important;
     padding: 20px;
     border-radius: 14px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     margin-bottom: 20px;
+}
+
+/* pastikan teks tidak hilang */
+.card, .card * {
+    color: #0d0d0d !important;
 }
 
 .title {
@@ -56,24 +63,22 @@ st.markdown(page_style, unsafe_allow_html=True)
 if menu == "Beranda":
     st.markdown("<h1 class='title'>💉 Infused Pump Berbasis Arduino Uno</h1>", unsafe_allow_html=True)
 
-    # ---- Gambar judul dari GitHub ----
+    # Ganti USERNAME/REPO
     infuse_url = "https://raw.githubusercontent.com/USERNAME/REPO/main/infusepump.png"
     st.image(infuse_url, caption="Prototype Infused Pump", use_column_width=True)
-
-    st.write("Selamat datang! Pilih menu di sebelah kiri untuk melihat informasi lengkap mengenai produk infused pump.")
 
     st.markdown(
         """
         <div class='card'>
-        Sistem infused pump ini dibuat dengan tujuan menyediakan alat pemantauan infus otomatis 
-        yang murah, sederhana, dan akurat, menggunakan Arduino Uno.
+        Selamat datang! Gunakan menu di sebelah kiri untuk melihat deskripsi produk,
+        proses pembuatan, video demonstrasi, dan biodata tim.
         </div>
         """,
         unsafe_allow_html=True,
     )
 
 # -------------------------------------------------------
-# HALAMAN: DESKRIPSI PRODUK
+# DESKRIPSI PRODUK
 # -------------------------------------------------------
 elif menu == "Deskripsi Produk":
     st.markdown("<h2 class='title'>1. Deskripsi Produk</h2>", unsafe_allow_html=True)
@@ -81,17 +86,17 @@ elif menu == "Deskripsi Produk":
     st.markdown(
         """
         <div class='card'>
-        Infused pump berbasis Arduino Uno ini bekerja menggunakan metode <b>time-based control</b>.
-        Pengguna memasukkan durasi melalui keypad 4×4, lalu pompa peristaltik akan mengalirkan cairan 
-        secara otomatis dengan laju yang stabil.
-
+        Infused pump berbasis Arduino Uno bekerja menggunakan metode <b>time-based control</b>.
+        Pengguna memasukkan durasi melalui keypad 4×4, lalu pompa peristaltik akan mengalirkan
+        cairan infus secara otomatis.
         <br><br>
-        <b>Keunggulan utama:</b>
+
+        <b>Keunggulan:</b>
         <ul>
-            <li>⏱ Akurasi waktu: <b>100%</b></li>
-            <li>💧 Deviasi volume: <b>0,2–0,4%</b></li>
-            <li>🔔 Alarm real-time: <b>100% tepat waktu</b></li>
-            <li>🚀 Dua mode aliran stabil: 8,3 mL/min & 2,2 mL/min</li>
+            <li>⏱ Akurasi waktu 100%</li>
+            <li>💧 Deviasi volume 0,2–0,4%</li>
+            <li>🔔 Alarm tepat waktu 100%</li>
+            <li>🚀 Laju aliran stabil: 8,3 mL/min & 2,2 mL/min</li>
         </ul>
         </div>
         """,
@@ -99,26 +104,24 @@ elif menu == "Deskripsi Produk":
     )
 
 # -------------------------------------------------------
-# HALAMAN: DOKUMENTASI PROSES
+# PROSES PEMBUATAN
 # -------------------------------------------------------
-elif menu == "Proses Pembuatan Prototype":
+elif menu == "Proses Pembuatan":
     st.markdown("<h2 class='title'>2. Proses Pembuatan</h2>", unsafe_allow_html=True)
 
-    # ---- Gambar alur dari GitHub ----
     alur_url = "https://raw.githubusercontent.com/USERNAME/REPO/main/alur.png"
-    st.image(alur_url, caption="Diagram Alur Pembuatan Prototype", use_column_width=True)
+    st.image(alur_url, caption="Diagram Alur Pembuatan", use_column_width=True)
 
-    # ---- Penjelasan Tahapan ----
     st.markdown(
         """
         <div class='card'>
-        <p><b>Tahapan pembuatan prototype infused pump meliputi proses berikut:</b></p>
+        <b>Tahapan pembuatan:</b>
         <ul>
-            <li><b>Perancangan diagram blok</b> – menentukan alur kerja sistem mulai dari input keypad, pemrosesan Arduino, hingga output LCD, motor, dan buzzer.</li>
-            <li><b>Pembuatan skematik rangkaian</b> – menyusun koneksi detail antar komponen seperti keypad, LCD I2C, motor driver L298N, pompa peristaltik, dan catu daya.</li>
-            <li><b>Perakitan komponen</b> – merangkai seluruh modul pada casing akrilik agar ergonomis, stabil, dan aman digunakan.</li>
-            <li><b>Pemrograman Arduino</b> – membuat logika timer, kontrol motor berbasis waktu, tampilan LCD real-time, serta alarm buzzer.</li>
-            <li><b>Pengujian waktu, alarm, dan laju aliran</b> – mengevaluasi akurasi timer, kestabilan flow rate, dan respons alarm.</li>
+            <li>Perancangan diagram blok</li>
+            <li>Penyusunan skematik rangkaian</li>
+            <li>Perakitan hardware</li>
+            <li>Pemrograman Arduino</li>
+            <li>Pengujian performa</li>
         </ul>
         </div>
         """,
@@ -126,18 +129,18 @@ elif menu == "Proses Pembuatan Prototype":
     )
 
 # -------------------------------------------------------
-# HALAMAN: VIDEO DEMONSTRASI
+# VIDEO DEMO
 # -------------------------------------------------------
 elif menu == "Video Demonstrasi":
     st.markdown("<h2 class='title'>3. Video Demonstrasi</h2>", unsafe_allow_html=True)
 
-    link = st.text_input("https://drive.google.com/drive/folders/16L5dx4bmIks9y16hYyNSFmjjDD5tTkvh?usp=sharing")
+    link = st.text_input("Masukkan link video Drive/YouTube:")
 
     if link:
         st.video(link)
 
 # -------------------------------------------------------
-# HALAMAN: BIODATA TIM
+# BIODATA
 # -------------------------------------------------------
 elif menu == "Biodata Tim":
     st.markdown("<h2 class='title'>4. Biodata Tim & Pembimbing</h2>", unsafe_allow_html=True)
@@ -157,8 +160,6 @@ elif menu == "Biodata Tim":
         """,
         unsafe_allow_html=True,
     )
-
-# -------------------------------------------------------
 
 # -------------------------------------------------------
 # FOOTER
