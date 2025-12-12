@@ -1,71 +1,95 @@
 import streamlit as st
+from PIL import Image
 
-# --- Website Title ---
-st.title("Infused Pump Berbasis Arduino Uno — Personal Product Website")
+# ============================
+# PERSONAL PRODUCT WEBSITE – UAS
+# ============================
+# Dibuat sesuai instruksi pada screenshot:
+# 1. Deskripsi Produk/Prototipe
+# 2. Dokumentasi Proses Pembuatan
+# 3. Video Demonstrasi Produk (1–5 menit)
+# 4. Biodata Anggota Tim & Dosen Pembimbing/Mitra
+# 5. Link Repository (jika ada)
+# Website harus dapat diakses oleh dosen penguji
+# ============================
 
+st.set_page_config(page_title="Infused Pump – Personal Product Website", layout="wide")
+
+st.title("💉 Infused Pump Berbasis Arduino Uno")
+st.subheader("Personal Product Website – Ujian Akhir Semester")
+
+# ============================
+# 1. DESKRIPSI PRODUK
+# ============================
+st.header("1. Deskripsi Produk / Prototipe")
 st.markdown("""
-## 1. Deskripsi Produk / Prototipe
-Sistem **Infused Pump berbasis Arduino Uno** adalah perangkat yang dirancang untuk mengatur dan memonitor aliran infus secara otomatis berdasarkan waktu. Sistem ini menggunakan *time-based control* sehingga motor pompa peristaltik bekerja sesuai durasi yang dimasukkan oleh pengguna melalui keypad 4×4. Perangkat dilengkapi LCD untuk menampilkan waktu, buzzer sebagai alarm, dan driver L298N untuk mengatur motor.
+Sistem **Infused Pump berbasis Arduino Uno** dikembangkan sebagai solusi monitoring cairan infus menggunakan metode *time-based control*.  
+Pengguna mengatur durasi infus menggunakan keypad 4×4, dan pompa peristaltik akan berjalan otomatis sesuai waktu yang diinput.
 
 Fitur utama:
-- Akurasi waktu 100% pada seluruh variasi pengujian.
-- Deviasi volume sangat rendah (0,2–0,4%).
-- Dua mode laju aliran stabil: **8,3 mL/min** dan **2,2 mL/min**.
-- Alarm real-time pada menit terakhir dan waktu selesai.
-- Desain sederhana, ekonomis, dan mudah digunakan.
+- Akurasi waktu 100% pada seluruh pengujian
+- Deviasi volume rendah (0,2–0,4%)
+- Laju aliran stabil 8,3 mL/min & 2,2 mL/min
+- Alarm buzzer aktif real-time
+- Tampilan LCD untuk monitoring
+- Desain sederhana, ekonomis, mudah digunakan
 """)
 
-# --- Dokumentasi Proses Pembuatan ---
+# ============================
+# 2. DOKUMENTASI PROSES PEMBUATAN
+# ============================
+st.header("2. Dokumentasi Proses Pembuatan")
 st.markdown("""
-## 2. Dokumentasi Proses Pembuatan
-**Tahap Pembuatan:**
-1. **Perancangan Sistem:** Penyusunan diagram blok, skematik, serta alur kerja komponen.
-2. **Perakitan Hardware:** Integrasi Arduino Uno, keypad 4×4, pompa peristaltik, driver L298N, LCD I2C, buzzer, serta catu daya.
-3. **Pemrograman:** Implementasi kontrol berbasis waktu menggunakan Arduino IDE.
-4. **Pengujian:** Pengukuran durasi, volume, stabilitas motor, dan respon alarm.
-5. **Analisis Data:** Perhitungan error waktu, deviasi volume, dan konsistensi laju aliran.
+Berikut tahapan dalam pembuatan perangkat Infused Pump:
 
-Dokumentasi gambar dapat ditambahkan di sini (unggah foto prototipe jika diperlukan):
+1. **Perancangan Diagram Blok Sistem** – Menentukan alur kerja komponen (Arduino, keypad, LCD, driver, motor, buzzer).  
+2. **Perakitan Hardware** – Integrasi semua komponen pada casing akrilik.  
+3. **Penyusunan Skematik Rangkaian** – Koneksi pin Arduino, driver L298N, LCD I2C, pompa, dan power supply.  
+4. **Pemrograman Arduino** – Implementasi kontrol waktu dan alarm.  
+5. **Pengujian Sistem** – Waktu operasi, respons alarm, output volume, stabilitas motor.
+
+Unggah dokumentasi foto proses / alat di bawah ini:
 """)
 
-uploaded_images = st.file_uploader("Upload dokumentasi gambar (opsional)", accept_multiple_files=True)
-if uploaded_images:
-    for img in uploaded_images:
-        st.image(img)
+imgs = st.file_uploader("Upload dokumentasi (bisa lebih dari 1)", accept_multiple_files=True)
+if imgs:
+    for i in imgs:
+        st.image(i, caption=i.name)
 
-# --- Video Demo ---
-st.markdown("""
-## 3. Video Demonstrasi Produk
-Durasi yang diizinkan: **1–5 menit**.
-Silakan masukkan link video demo (YouTube/Drive).
-""")
-
-video_link = st.text_input("Masukkan Link Video Demo:")
+# ============================
+# 3. VIDEO DEMONSTRASI
+# ============================
+st.header("3. Video Demonstrasi Produk (1–5 menit)")
+video_link = st.text_input("Masukkan Link Video (YouTube / Google Drive):")
 if video_link:
     st.video(video_link)
 
-# --- Biodata Anggota Tim & Dosen Pembimbing ---
+# ============================
+# 4. BIODATA TIM
+# ============================
+st.header("4. Biodata Anggota Tim & Dosen Pembimbing")
 st.markdown("""
-## 4. Biodata Anggota Tim & Dosen Pembimbing/Mitra
-### Anggota Tim
-- **Dila Fadilatu Nisa** — Peneliti dan Pengembang Hardware
-- **Angela Bertha Miady Torie** — Dokumentasi, Analisis Data, dan Penyusunan Website
+### 👥 Anggota Tim
+- **Dila Fadilatu Nisa** – Pengembangan Hardware & Sistem
+- **Angela Bertha Miady Torie** – Dokumentasi, Analisis Data, Website
 
-### Dosen Pembimbing/Mitra
-- **(Isi Nama Dosen Pembimbing)**
+### 🎓 Dosen Pembimbing
+- *(Isi nama dosen pembimbing di sini)*
 """)
 
-# --- Repository ---
-st.markdown("""
-## 5. Link Repository
-Masukkan link repository GitHub jika tersedia.
-""")
-repo_link = st.text_input("Github Repository Link:")
-if repo_link:
-    st.markdown(f"🔗 **Repository:** {repo_link}")
+# ============================
+# 5. REPOSITORY
+# ============================
+st.header("5. Link Repository (Jika Ada)")
+repo = st.text_input("Masukkan link GitHub Repository:")
+if repo:
+    st.markdown(f"🔗 **Repository Anda:** {repo}")
 
-# --- Footer ---
+# ============================
+# FOOTER
+# ============================
 st.markdown("""
 ---
-Website ini dibuat sebagai pemenuhan tugas UAS dan dapat diakses oleh dosen penguji melalui tautan yang diberikan.
-""")
+Website ini dibuat sebagai pemenuhan UAS dan dapat diakses oleh dosen penguji melalui tautan Streamlit yang diberikan.
+"""
+)
