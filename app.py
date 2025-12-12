@@ -64,8 +64,8 @@ if menu == "Beranda":
     st.markdown("<h1 class='title'>💉 Infused Pump Berbasis Arduino Uno</h1>", unsafe_allow_html=True)
 
     # Ganti USERNAME/REPO
-    infuse_url = "https://raw.githubusercontent.com/USERNAME/REPO/main/infusepump.png"
-    st.image(infuse_url, caption="Prototype Infused Pump", use_column_width=True)
+    infuse_url = "https://github.com/angelabertha/Infused-Pump-using-ArduinoUno.git"
+    st.image(infuse_url, caption="infusepump.png", use_column_width=True)
 
     st.markdown(
         """
@@ -90,7 +90,6 @@ elif menu == "Deskripsi Produk":
         Pengguna memasukkan durasi melalui keypad 4×4, lalu pompa peristaltik akan mengalirkan
         cairan infus secara otomatis.
         <br><br>
-
         <b>Keunggulan:</b>
         <ul>
             <li>⏱ Akurasi waktu 100%</li>
@@ -117,11 +116,16 @@ elif menu == "Proses Pembuatan":
         <div class='card'>
         <b>Tahapan pembuatan:</b>
         <ul>
-            <li>Perancangan diagram blok</li>
+            <li>Perancangan diagram blok</li> 
+            Menentukan alur kerja sistem mulai dari input keypad, pemrosesan Arduino, hingga output LCD, motor, dan buzzer.
             <li>Penyusunan skematik rangkaian</li>
+            Menyusun koneksi detail antar komponen seperti keypad, LCD I2C, motor driver L298N, pompa peristaltik, dan catu daya.
             <li>Perakitan hardware</li>
+            Merangkai seluruh modul pada casing akrilik agar ergonomis, stabil, dan aman digunakan.
             <li>Pemrograman Arduino</li>
+            Membuat logika timer, kontrol motor berbasis waktu, tampilan LCD real-time, serta alarm buzzer.
             <li>Pengujian performa</li>
+            Mengevaluasi akurasi timer, kestabilan flow rate, dan respons alarm.
         </ul>
         </div>
         """,
@@ -134,7 +138,7 @@ elif menu == "Proses Pembuatan":
 elif menu == "Video Demonstrasi":
     st.markdown("<h2 class='title'>3. Video Demonstrasi</h2>", unsafe_allow_html=True)
 
-    link = st.text_input("Masukkan link video Drive/YouTube:")
+    link = st.text_input("https://drive.google.com/drive/folders/16L5dx4bmIks9y16hYyNSFmjjDD5tTkvh?usp=sharing ")
 
     if link:
         st.video(link)
@@ -155,7 +159,7 @@ elif menu == "Biodata Tim":
         </ul>
 
         <h4>🎓 Dosen Pembimbing</h4>
-        <p>Isi nama dosen pembimbing di sini.</p>
+        <p>I Gde Eka Dirgayussa, M.Si.,</p>
         </div>
         """,
         unsafe_allow_html=True,
