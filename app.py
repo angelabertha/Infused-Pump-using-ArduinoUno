@@ -118,7 +118,7 @@ if menu == "Beranda":
 # -------------------------------------------------------
 elif menu == "Deskripsi Produk":
 
-    st.markdown("<h2 class='title'>1. Deskripsi Produk</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 class='title'>Deskripsi Produk</h2>", unsafe_allow_html=True)
 
     st.markdown(
         """
@@ -199,7 +199,152 @@ elif menu == "Perakitan & Pengujian":
     st.markdown("<div class='card'>Arduino IDE</div>", unsafe_allow_html=True)
 
     st.markdown("<h3 class='subtitle'>Program Arduino</h3>", unsafe_allow_html=True)
-    st.code(open("pasted.txt").read(), language="cpp")
+    st.code("""
+#include <Keypad.h>
+#include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+
+// LCD I2C
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+// Motor Driver L298N
+const int in1 = 12;
+const int in2 = 13;
+const int ena = 3;
+
+// Buzzer
+const int buzzerPin = A3;
+
+// Keypad setup
+const byte ROWS = 4;
+const byte COLS = 4;
+char keys[ROWS][COLS] = {
+  {'1','2','3','A'},
+  {'4','5','6','B'},
+  {'7','8','9','C'},  // C = STOP
+  {'*','0','#','D'}   // D = RESET
+};
+
+byte rowPins[ROWS] = {4, 5, 6, 7};
+byte colPins[COLS] = {8, 9, 10, 11};
+
+Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
+
+// Variabel utama
+int targetVolume = 0;
+int targetTime = 0;
+int pwmSpeed = 130;
+
+unsigned long startTime;
+bool running = false;
+bool buzzerOn = false;
+
+void setup() {
+  Serial.begin(9600);
+  lcd.init();
+  lcd.backlight();
+
+  pinMode(in1, OUTPUT);
+  pinMode(in2, OUTPUT);
+  pinMode(ena, OUTPUT);
+  pinMode(buzzerPin, OUTPUT);
+  digitalWrite(buzzerPin, LOW);
+
+  digitalWrite(in1, HIGH);
+  digitalWrite(in2, LOW);
+
+  inputMenu();
+}
+
+void loop() {
+  if (running) {
+    char key = keypad.getKey();
+    if (key == 'C' || key == 'D') {
+      stopSystem("Sistem dihentikan");
+      return;
+    }
+
+    unsigned long elapsed = (millis() - startTime) / 1000;
+    int remainingTime = (targetTime * 60) - elapsed;
+
+    if (remainingTime <= 60 && remainingTime > 0) {
+      digitalWrite(buzzerPin, HIGH);
+    } else {
+      digitalWrite(buzzerPin, LOW);
+    }
+
+    analogWrite(ena, pwmSpeed);
+
+    lcd.setCursor(0, 0);
+    lcd.print("Sisa: ");
+    lcd.print(remainingTime);
+    lcd.print(" s  ");
+
+    float flowRate = map(pwmSpeed, 28, 230, 220, 860) / 100.0;
+    lcd.setCursor(0, 1);
+    lcd.print("Laju: ");
+    lcd.print(flowRate, 1);
+    lcd.print(" ml/mnt");
+
+    if (remainingTime <= 0) {
+      stopSystem("Infus selesai!");
+    }
+
+    delay(1000);
+  }
+}
+
+void inputMenu() {
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Volume (ml):");
+  targetVolume = inputNumber();
+
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Waktu (mnt):");
+  targetTime = inputNumber();
+
+  int target_mL_per_min = targetVolume / targetTime;
+  pwmSpeed = map(target_mL_per_min * 10, 22, 86, 28, 230);
+
+  lcd.clear();
+  lcd.print("Mulai...");
+  delay(1000);
+
+  startTime = millis();
+  running = true;
+}
+
+int inputNumber() {
+  String input = "";
+  while (true) {
+    char key = keypad.getKey();
+    if (key >= '0' && key <= '9') {
+      input += key;
+      lcd.setCursor(0, 1);
+      lcd.print(input);
+    } else if (key == '#') {
+      return input.toInt();
+    } else if (key == '*') {
+      input = "";
+      lcd.setCursor(0, 1);
+      lcd.print("                ");
+    }
+  }
+}
+
+void stopSystem(String message) {
+  analogWrite(ena, 0);
+  lcd.clear();
+  lcd.print(message);
+  digitalWrite(buzzerPin, LOW);
+  delay(3000);
+  running = false;
+  inputMenu();
+}
+""", language="cpp")
+
 
     st.markdown("<h3 class='subtitle'>Hasil Pengujian</h3>", unsafe_allow_html=True)
 
