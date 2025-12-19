@@ -129,7 +129,7 @@ elif menu == "Deskripsi Produk":
         <br><br>
         <b>Keunggulan Sistem:</b>
         <ul>
-            <li>⏱ Akurasi waktu 100%</li>
+            <li>⏰ Akurasi waktu 100%</li>
             <li>💧 Deviasi volume rendah (±0,2–0,4%)</li>
             <li>🔔 Alarm tepat waktu 100%</li>
             <li>🚀 Laju aliran stabil: 8,3 mL/menit & 2,2 mL/menit</li>
