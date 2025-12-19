@@ -47,16 +47,29 @@ body {
     font-weight: 600;
 }
 
+/* CARD FIX MOBILE */
 .card {
     background: #ffffff !important;
     padding: 22px;
     border-radius: 16px;
     box-shadow: 0 6px 14px rgba(0,0,0,0.12);
     margin-bottom: 20px;
+    color: #0d0d0d !important;
 }
 
-.card * {
+/* PAKSA TEKS AMAN DI HP */
+.card p,
+.card li,
+.card span,
+.card div {
     color: #0d0d0d !important;
+}
+
+/* BOLD TETAP TEGAS */
+.card b,
+.card strong {
+    color: #0d0d0d !important;
+    font-weight: 700;
 }
 
 .badge {
@@ -73,6 +86,7 @@ code {
     background-color: #f4f6f8;
     padding: 6px 10px;
     border-radius: 8px;
+    color: #0d0d0d !important;
 }
 </style>
 """
