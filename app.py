@@ -171,7 +171,7 @@ elif menu == "Deskripsi Produk":
 # -------------------------------------------------------
 elif menu == "Perakitan & Pengujian":
 
-    st.markdown("<h2 class='title'>2. Perakitan & Pengujian</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 class='title'>Perakitan & Pengujian</h2>", unsafe_allow_html=True)
 
     alur_url = "https://raw.githubusercontent.com/angelabertha/Infused-Pump-using-ArduinoUno/main/alur.png"
     st.image(alur_url, caption="Diagram Alur Sistem", use_column_width=True)
@@ -380,7 +380,7 @@ void stopSystem(String message) {
 # -------------------------------------------------------
 elif menu == "Video Demonstrasi":
 
-    st.markdown("<h2 class='title'>3. Video Demonstrasi</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 class='title'>Video Demonstrasi</h2>", unsafe_allow_html=True)
 
     video_link = "https://drive.google.com/file/d/1LfszewNma00GHxid5a17z2UtKCeK_boo/view?usp=sharing"
 
@@ -400,15 +400,15 @@ elif menu == "Video Demonstrasi":
 # -------------------------------------------------------
 elif menu == "Biodata Tim":
 
-    st.markdown("<h2 class='title'>4. Biodata Tim & Pembimbing</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 class='title'>Biodata Tim & Pembimbing</h2>", unsafe_allow_html=True)
 
     st.markdown(
         """
         <div class='card'>
         <h4>👥 Anggota Tim</h4>
         <ul>
-            <li><b>Dila Fadilatu Nisa</b> – Hardware & Sistem</li>
-            <li><b>Angela Bertha Miady Torie</b> – Dokumentasi, Analisis, Website</li>
+            <li><b>Dila Fadilatu Nisa</b> – 122430135 - Hardware & Sistem</li>
+            <li><b>Angela Bertha Miady Torie</b> - 122430137 – Dokumentasi & Website</li>
         </ul>
         <h4>🎓 Dosen Pembimbing</h4>
         <p>I Gde Eka Dirgayussa, M.Si.</p>
