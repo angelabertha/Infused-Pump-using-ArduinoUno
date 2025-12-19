@@ -1,12 +1,3 @@
-<think>
-Pertama, pengguna ingin memperbaiki website Streamlit mereka. Kode asli sudah ada, dan saya perlu menambahkan konten sesuai permintaan.
-
-
-## Addressing User Request  
-- The user wants to enhance their Streamlit website with new content based on existing code.  
-- The main request is to add text about a "pember" on the homepage.  
-- Need to integrate this addition smoothly without altering the original functionality.
-</think>```python
 import streamlit as st
 
 # -------------------------------------------------------
