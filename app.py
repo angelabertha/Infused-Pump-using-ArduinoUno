@@ -86,32 +86,39 @@ if menu == "Beranda":
     st.markdown("<h1 class='title'>INFUSED PUMP BERBASIS ARDUINO UNO</h1>", unsafe_allow_html=True)
     st.markdown("<span class='badge'>Biomedical Engineering</span><span class='badge'>Arduino</span><span class='badge'>Infusion Control</span>", unsafe_allow_html=True)
 
-    col1, col2 = st.columns([1.1, 1])
+    # -------------------------------
+# BANNER GAMBAR (FOKUS UTAMA)
+# -------------------------------
+st.image(
+    "infusepump.png",
+    caption="Prototype Infuse Pump Otomatis",
+    use_column_width=True
+)
 
-    with col1:
-        st.image("infusepump.png", caption="Prototype Infuse Pump Otomatis", use_column_width=True)
-
-    with col2:
-        st.markdown(
-            """
-            <div class='card'>
-            <b>Latar Belakang</b><br><br>
-            Pemberian cairan infus merupakan salah satu tindakan medis yang membutuhkan ketelitian tinggi,
-            khususnya dalam pengaturan laju aliran dan waktu pemberian cairan. Kesalahan dalam pengaturan
-            laju infus dapat berdampak pada ketidakseimbangan cairan tubuh pasien dan berpotensi menimbulkan
-            risiko kesehatan.
-            <br><br>
-            Oleh karena itu, diperlukan suatu sistem yang mampu mengatur dan memantau proses pemberian infus
-            secara akurat, konsisten, dan mudah dioperasikan.
-            <br><br>
-            Proyek ini bertujuan untuk merancang dan mengimplementasikan sistem <b>infuse pump otomatis berbasis
-            mikrokontroler Arduino Uno</b> yang dilengkapi dengan keypad sebagai media input, LCD sebagai
-            tampilan informasi, serta motor DC dengan driver L298N sebagai aktuator penggerak aliran cairan,
-            sehingga diharapkan dapat meningkatkan ketepatan dan keandalan pengaturan laju infus.
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
+# -------------------------------
+# LATAR BELAKANG (DI BAWAH BANNER)
+# -------------------------------
+st.markdown(
+    """
+    <div class='card'>
+    <h3>Latar Belakang</h3>
+    Pemberian cairan infus merupakan salah satu tindakan medis yang membutuhkan ketelitian tinggi,
+    khususnya dalam pengaturan laju aliran dan waktu pemberian cairan. Kesalahan dalam pengaturan
+    laju infus dapat berdampak pada ketidakseimbangan cairan tubuh pasien dan berpotensi menimbulkan
+    risiko kesehatan.
+    <br><br>
+    Oleh karena itu, diperlukan suatu sistem yang mampu mengatur dan memantau proses pemberian infus
+    secara akurat, konsisten, dan mudah dioperasikan.
+    <br><br>
+    Proyek ini bertujuan untuk merancang dan mengimplementasikan sistem
+    <b>infuse pump otomatis berbasis mikrokontroler Arduino Uno</b>
+    yang dilengkapi dengan keypad sebagai media input, LCD sebagai tampilan informasi,
+    serta motor DC dengan driver L298N sebagai aktuator penggerak aliran cairan,
+    sehingga diharapkan dapat meningkatkan ketepatan dan keandalan pengaturan laju infus.
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 # -------------------------------------------------------
 # DESKRIPSI PRODUK
