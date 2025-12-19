@@ -394,7 +394,6 @@ Tonton Video
 </a>
 </div>
 """, unsafe_allow_html=True)
-)
 
 # -------------------------------------------------------
 # BIODATA TIM
