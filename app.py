@@ -378,23 +378,22 @@ void stopSystem(String message) {
 # -------------------------------------------------------
 # VIDEO DEMONSTRASI
 # -------------------------------------------------------
-# -------------------------------------------------------
-# VIDEO DEMONSTRASI
-# -------------------------------------------------------elif menu == "Video Demonstrasi":
+elif menu == "Video Demonstrasi":
 
-    # JUDUL HALAMAN (WAJIB ADA)
-    st.header("Video Demonstrasi")
+    st.markdown("<h2 class='title'>Video Demonstrasi</h2>", unsafe_allow_html=True)
 
     st.markdown("""
+    <div class='card'>
     Video berikut menampilkan proses pengujian alat infus pump otomatis
-    berbasis Arduino Uno yang mencakup input parameter, pengoperasian pompa,
-    serta aktivasi sistem alarm.
-    """)
+    berbasis Arduino Uno yang mencakup input parameter melalui keypad,
+    pengoperasian pompa peristaltik, tampilan LCD, serta aktivasi sistem alarm.
+    </div>
+    """, unsafe_allow_html=True)
 
     video_link = "https://drive.google.com/file/d/1LfszewNma00GHxid5a17z2UtKCeK_boo/view?usp=sharing"
 
     st.markdown(f"""
-    <div class='card' style='text-align:center; margin-top:20px;'>
+    <div class='card' style='text-align:center;'>
         <p style='font-size:17px; font-weight:600;'>
             ▶ Video Demonstrasi Pengujian Alat
         </p>
@@ -406,13 +405,11 @@ void stopSystem(String message) {
             border-radius:12px;
             text-decoration:none;
             font-weight:600;
-            margin-top:10px;
         ">
         Tonton Video
         </a>
     </div>
-    """, unsafe_allow_html=True)
-
+    """, unsafe_allow_html=True)            
 
 # -------------------------------------------------------
 # BIODATA TIM
